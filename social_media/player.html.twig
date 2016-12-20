@@ -1,0 +1,9 @@
+{# app/Resources/views/social_media/twitch.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+{% for result in results %}
+    {# {{dump(result)}} #}
+    <h1>{{result.nickname}}</h1>
+    <h1>{{result.name}}</h1>
+{% endfor %}
+{% endblock %}

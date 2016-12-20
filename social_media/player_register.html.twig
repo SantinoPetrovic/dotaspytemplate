@@ -1,0 +1,108 @@
+{# app/Resources/views/default/new.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+        <h1>Players: </h1>
+        <button class="newForm btn btn-primary">Add new player</button>
+        <form role="form" class="hide playerFormular">
+            <div class="form-group">
+                <label>Nickname:</label>
+                <input type="text" class="form-control nickName" name="nickName" required>
+            </div>
+            <div class="form-group">
+                <label>Upload image by URL:</label>
+                <input type="text" class="form-control imageUrl" name="imageUrl">
+            </div>
+            <div class="form-group">
+                <label>Name the image:</label>
+                <input type="text" class="form-control imageName" name="imageName">
+            </div>
+            <div class="form-group">
+                <label>Twitter ID (example: @CLEMENTINATOR is CLEMENTINATOR as twitter ID):</label>
+                <input type="text" class="form-control twitterID" name="twitterID">
+            </div>
+            <div class="form-group">
+                <label>Facebook ID (example: https://www.facebook.com/OfficialPuppey/?fref=ts is OfficialPuppey as Facebook ID):</label>
+                <input type="text" class="form-control facebookID" name="facebookID">
+            </div>
+            <div class="form-group">
+                <label>Twitch ID (example: www.twitch.tv/puppey is puppey as Twitch ID):</label>
+                <input type="text" class="form-control twitchID" name="twitchID">
+            </div>
+            <div class="form-group">
+                <label>Steam ID (example: http://steamcommunity.com/id/puppexa/ , place it in http://steamidfinder.com/ , inspect the element and find the href who somehow looks like this http://steamcommunity.com/profiles/76561198047544485 . http://steamcommunity.com/profiles/76561198047544485 is 76561198047544485 as steam ID ):</label>
+                <input type="text" class="form-control steamID" name="steamID">
+            </div>
+            <div class="form-group">
+                <label>Dota2 ID (example: http://www.dotabuff.com/players/87278757 is 87278757 as Dota2 ID):</label>
+                <input type="text" class="form-control dota2ID" name="dota2ID">
+            </div>
+            <div class="form-group">
+                <label>Wiki URL: (example: http://wiki.teamliquid.net/dota2/Puppey as Wiki URL. CAUTION! Use only http://wiki.teamliquid.net!):</label>
+                <input type="text" class="form-control wikiUrl" name="wikiUrl">
+            </div>
+            <div class="form-group">
+                <label>Alternative names: (example: N0tail,BigDaddy,BigDaddyN0tail,etc...</label>
+                <input type="text" class="form-control alternativeNames" name="alternativeNames">
+            </div>
+            <button class="backToTable btn btn-danger"><span class="glyphicon glyphicon-arrow-left"></span> Back</button>
+            <button type="submit" class="btn btn-success pull-right submitButton" name="submit"><span class="glyphicon glyphicon-plus"></span> Submit</button>
+        </form>
+        <table class = "table table-condensed playerTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nickname</th>
+                    <th>Twitter</th>
+                    <th>Facebook</th>
+                    <th>Twitch</th>
+                    <th>Steam</th>
+                    <th>Dota2</th>
+                    <th>Wiki</th>
+                    <th>Edit</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+
+            <tbody class="adminPlayerValuesBody">
+                {% for result in results %}
+                    <tr class="adminPlayerValues">
+                        <td>{{result.player_ID}}</td>
+                        <td>{{result.nickname}}</td>
+                        {% if result.twitter_id|length > 0 %}
+                            <td><a class="iconButton" value="twitter_id"><img src="img/twitter_icon.png"></a></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% if result.facebook_id|length > 0 %}
+                            <td><a class="iconButton" value="facebook_id"><img src="img/facebook_icon.png"></a></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% if result.twitch_id|length > 0 %}
+                            <td><a class="iconButton" value="twitch_id"><img src="img/twitch_icon.png"></a></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% if result.steam_id|length > 0 %}
+                            <td><a class="iconButton" value="steam_id"><img src="img/steam_icon.png"></a></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% if result.dota2_id|length > 0 %}
+                            <td><a class="iconButton" value="dota2_id"><img src="img/dota_icon.png"></a></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% if result.wiki_url|length > 0 %}
+                            <td><a class="iconButton" value="wiki_url"><img src="img/wikipedia_icon.png"></a></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        <td><a class="editButton" value="{{result.player_ID}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td><a class="removeButton" nickname="{{result.nickname}}" image="{{result.image_url}}" value="{{result.player_ID}}"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}

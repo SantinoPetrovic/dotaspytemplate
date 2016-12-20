@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=906008279464404";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="welcomeContent">
+    <h2 class="welcomeHeader">Hi! Welcome to DotaSpy</h2>
+	<p class="welcomeText">Begin to use this site/application by searching a professional dota2 player.</p>
+	<p class="welcomeText">I would recommend to search Puppey!</p>
+</div>
+<div class="grid">
+	<div class="grid-item">
+	{% for result3 in results3 %}
+	    {% if result3 is not empty %}
+	        <h4 class="centerText">Random tweet from <a href="/player/{{result3.player_ID}}/{{result3.nickname}}">{{result3.nickname}}</a></h4>
+	    {% endif %}
+	{% endfor %}
+	{% for result1 in results1 %}
+	    {% if result1 is not empty %}
+	        {% include 'social_media/twitterPlugin.html.twig' %}
+	    {% else %}
+	        <p>This user doesn't have a twitter account.</p>
+	    {% endif %}
+	{% endfor %}
+  	</div>
+  	<div class="grid-item grid-item--width2 grid-item--height2 facebookDesktop" id="facebookContent">
+	{% for result5 in results5 %}
+	    {% if result5 is not empty %}
+	        <h4 class="centerText">Random Facebook Content from <a href="/player/{{result5.player_ID}}/{{result5.nickname}}">{{result5.nickname}}</a></h4>
+	    {% endif %}
+	{% endfor %}
+	{% for result2 in results2 %}
+	    {% if result2 is not empty %}
+	        {% include 'social_media/facebookPlugin.html.twig' %}
+	    {% else %}
+	        <p>This user doesn't have a facebook account.</p>
+	    {% endif %}
+	{% endfor %}  		
+  	</div>
+  	<div class="grid-item">
+	  {% for result6 in results6 %}
+	      {% if result6 is not empty %}
+	          <h4 class="centerText">Latest match from <a href="/player/{{result6.player_ID}}/{{result6.nickname}}">{{result6.nickname}}</a></h4>
+	      {% endif %}
+	  {% endfor %}
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="matchContent">
+	    {% for result4 in results4 %}
+	      {% if result4 is not empty %}
+	          <a class="matchLink" href="http://www.dotabuff.com/matches/{{result4.matchID}}">
+	          {% include 'social_media/latestMatchesPlugin.html.twig' %}
+	          </a>
+	      {% else %}
+	          <p>There is none latest matches right now.</p>
+	      {% endif %}
+	    {% endfor %}
+  	  </div>
+  	</div>
+    <div class="grid-item centerText">
+    	<h4 class="">Latest Reddit news with professional player content</a></h4>
+	  	{% for result8 in results8 %}
+	      	{% if result8 is not empty %}
+	  			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="redditContent">
+	          	{% include 'social_media/redditPlugin.html.twig' %}
+	          	</div>
+	      	{% else %}
+	          <p>There is none latest reddit news right now.</p>
+	      	{% endif %}
+	    {% endfor %}    	    	
+    </div>
+
+    <div class="grid-item centerText">
+    	<h4 class="">Random Gosugamers news with professional player content</a></h4>
+	  	{% for result9 in results9 %}
+	      	{% if result9 is not empty %}
+	  			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="gosugamersContent">
+	          	{% include 'social_media/gosugamersPlugin.html.twig' %}
+	      	{% else %}
+	          <p>There is none gosugamers news right now.</p>
+	      	{% endif %}
+	    {% endfor %}   
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+<div class="hidden-sm hidden-md hidden-lg playerContent">
+    {# script for facebook #}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=906008279464404";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="col-xs-10 playerInfo">
+    {% for result3 in results3 %}
+        {% if result3 is not empty %}
+            {% include 'social_media/playerInformation.html.twig' %}
+        {% else %}
+            <p>There is no info about this player.</p>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <div class="col-xs-12" id="mobileTwitterContent">
+    <img class="socialMediaImage col-xs-8 col-xs-offset-2" src="http://46.101.160.201:8000/img/twitter.png">
+    {% for result1 in results1 %}
+        {% if result1 is not empty %}
+            {% include 'social_media/twitterPlugin.html.twig' %}
+        {% else %}
+            <p>This user doesn't have a twitter account.</p>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <div class="col-xs-12 facebookDesktop" id="facebookContent">
+    <img class="socialMediaImage col-xs-8 col-xs-offset-2" src="http://46.101.160.201:8000/img/facebook.png">
+    {% for result2 in results2 %}
+        {% if result2.facebook_id is not empty %}
+            {% include 'social_media/facebookPlugin.html.twig' %}
+        {% else %}
+                <p class="col-xs-12">This user doesn't have a facebook account.</p>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <div class="col-xs-10 latestMatchesContent">
+    {% for result4 in results4 %}
+        {% if result4 is not empty %}
+            <a class="matchLink" href="http://www.dotabuff.com/matches/{{result4.matchID}}">
+            {% include 'social_media/latestMatchesPlugin.html.twig' %}
+            </a>
+        {% else %}
+            <p>There is none latest matches right now.</p>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <div class="twitchContent">
+    <img class="socialMediaImage col-xs-8 col-xs-offset-2" src="http://46.101.160.201:8000/img/twitch.png">
+    {% for result2 in results2 %}
+        {% if result2 is not empty %}
+            {% include 'social_media/twitchPlugin.html.twig' %}
+        {% else %}
+            <p>This user doesn't have a twitch account.</p>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>

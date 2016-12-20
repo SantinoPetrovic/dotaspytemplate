@@ -1,0 +1,19 @@
+{# app/Resources/views/social_media/social_media.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="playerSearchContent">
+        <h3 class="searchResultHeader">You searched after "{{searchValueObj.searchValue}}" and it gave you {{numberObj.number}} results. </h3>
+        <ul class="col-lg-12 list-group playerSearchListContent">
+            {% for result1 in results1 %}
+            <a href="/player/{{result1.player_ID}}/{{result1.nickname}}">
+            <li class="col-xs-6 col-sm-4 col-md-4 col-lg-4 list-group-item playerSearchList">
+                <img class="playerSearchImage" src="/ajax/playerImages/{{result1.image_url}}">
+                {{result1.nickname}}
+            </li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 LatestMatchesBox">
+    <img class="col-xs-4 col-sm-3 col-md-3 col-lg-3 latestMatchesHeroImages" src="http://blog.santinopetrovic.com/dotaData/heroes_images_small/{{result4.hero}}.png">
+    {% if result4.team == "Dire" and result4.radiant_win == 'false' %}
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 wonMatch">Won Match</p>
+    {% elseif result4.team == "Dire" and result4.radiant_win == 'true' %}
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 lostMatch">Lost Match</p>
+    {% elseif result4.team == "Radiant" and result4.radiant_win == 'true' %}
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 wonMatch">Won Match</p>
+    {% elseif result4.team == "Radiant" and result4.radiant_win == 'false' %}
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 lostMatch">Lost Match</p>
+    {% endif %}
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 latestMatchesText">Hero: {{result4.localized_hero}}</p>
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 latestMatchesText">K/D/A: {{result4.kills}}/{{result4.deaths}}/{{result4.assists}}</p>
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4 latestMatchesText">Date: {{result4.match_timestamp|date('Y-m-d H:i')}}</p>
+</div>

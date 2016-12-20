@@ -1,0 +1,19 @@
+{# app/Resources/views/social_media/twitter.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+{# <iframe src="http://www.twitch.tv/nl_kripp/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/nl_kripp?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;"></a> #}
+{# <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/PieLieDieDota">@PieLieDieDota</a> omg pie, avatar picture, so dreamy ^^^^^</p>&mdash; Clement Ivanov (@CLEMENTINATOR) <a href="https://twitter.com/CLEMENTINATOR/status/651396251905343488">6 oktober 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Some wine and some wifi on the gucciplane <a href="http://t.co/mi2jnTUW8j">pic.twitter.com/mi2jnTUW8j</a></p>&mdash; Clement Ivanov (@CLEMENTINATOR) <a href="https://twitter.com/CLEMENTINATOR/status/651259666702462976">6 oktober 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Also <a href="https://twitter.com/hashtag/S?src=hash">#S</a></p>&mdash; Clement Ivanov (@CLEMENTINATOR) <a href="https://twitter.com/CLEMENTINATOR/status/650853510565773312">5 oktober 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="und" dir="ltr">GG <a href="https://twitter.com/TeamVirtuspro">@TeamVirtuspro</a></p>&mdash; Clement Ivanov (@CLEMENTINATOR) <a href="https://twitter.com/CLEMENTINATOR/status/647131823273869312">24 september 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">A kiddo and his happy dotes <a href="https://twitter.com/zai_2002">@zai_2002</a> <a href="http://t.co/E6vo87W0Vr">pic.twitter.com/E6vo87W0Vr</a></p>&mdash; Clement Ivanov (@CLEMENTINATOR) <a href="https://twitter.com/CLEMENTINATOR/status/641633084945891328">9 september 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Know Yourself <a href="https://twitter.com/follow2GD">@follow2GD</a> <a href="http://t.co/KQrBX6KlGP">pic.twitter.com/KQrBX6KlGP</a></p>&mdash; Clement Ivanov (@CLEMENTINATOR) <a href="https://twitter.com/CLEMENTINATOR/status/636998077082136577">27 augusti 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">People who run themselves into towers and feed couriers at the start of the game should get punished way harder than you think, Valve.</p>&mdash; Clement Ivanov (@CLEMENTINATOR) <a href="https://twitter.com/CLEMENTINATOR/status/635811100890693632">24 augusti 2015</a></blockquote> #}
+
+
+{% for result in results %}
+    <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"> {{result.content}} </p>&mdash; {{result.name}} (@{{result.screen_name}}) <a href="https://twitter.com/{{result.screen_name}}/status/{{result.twitter_ID}}"></a></blockquote>
+{% endfor %}
+
+{# <blockquote class="twitter-tweet" lang="sv"><p lang="und" dir="ltr">lol <a href="http://t.co/R5z2VtD75u">pic.twitter.com/R5z2VtD75u</a></p>&mdash; Charlie Yang (@CharlieCYang) <a href="https://twitter.com/CharlieCYang/status/650095325936545792">2 oktober 2015</a></blockquote> #}
+{% endblock %}

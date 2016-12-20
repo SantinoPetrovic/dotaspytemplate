@@ -1,0 +1,24 @@
+<div>
+{% if result3.name|length > 0 %}
+<p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 categoryText">Name: {{result3.name}}</p>
+<!-- <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 infoText">{{result3.name}}</p> -->
+{% endif %}
+{% if result3.romanized_name|length > 0 %}
+<p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 categoryText">Romanized Name: {{result3.romanized_name}}</p>
+<!-- <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 infoText">{{result3.romanized_name}}</p> -->
+{% endif %}
+{% if result3.birth|length > 0 %}
+<p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 categoryText">Birth: {{result3.birth|date("m/d/Y")}}</p>
+<!-- <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 infoText">{{result3.birth|date("m/d/Y")}}</p> -->
+{% endif %}
+{% if result3.country|length > 0 %}
+<p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 categoryText">Country: {{result3.country}}</p>
+<!-- <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 infoText">{{result3.country}}</p> -->
+{% endif %}
+{% if result3.team|length > 0 %}
+<p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 categoryText">Team: {{result3.team}}</p>
+<!-- <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 infoText">{{result3.team}}</p> -->
+{% else %}
+<p class="col-xs-12 col-sm-12 col-md-12 col-lg-12 categoryText">Team: none (for now)</p>
+{% endif %}
+</div>
